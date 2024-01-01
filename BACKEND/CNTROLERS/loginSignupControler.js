@@ -97,7 +97,7 @@ class loginSignup {
       let isCreated = await USER.create({
         password: hashed_pass,
         user_id,
-        admin: make_admin === true ? true : false,
+        admin: make_admin,
         name,
         refreshToken: refresh_token,
         avatar: `${process.env.DB_HOSTED_LINK}/${req.file.filename}`,
@@ -149,5 +149,4 @@ class loginSignup {
   };
 }
 
-function upload_image(image) {}
 module.exports = { loginSignup };
