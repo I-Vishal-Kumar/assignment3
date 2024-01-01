@@ -52,6 +52,7 @@ const Login = () => {
   async function LOGIN(e) {
     e.preventDefault();
     try {
+      getAlert("Loading...");
       let data = {
         user_id: l_details.user_id.trim(),
         pass: l_details.pass.trim(),
@@ -68,6 +69,7 @@ const Login = () => {
   async function SIGNUP(e) {
     e.preventDefault();
     try {
+      getAlert("Loading...");
       const formData = new FormData();
 
       // Append form fields to FormData
@@ -80,7 +82,6 @@ const Login = () => {
 
       // Append image to FormData
       formData.append("avatar", image);
-      console.log(r_details.make_admin);
       const response = await axios.post(`/signup`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
