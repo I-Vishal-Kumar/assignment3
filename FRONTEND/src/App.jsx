@@ -5,6 +5,7 @@ import Login from "./componenets/LOGIN/login";
 import { UserContextProvider } from "./hooks/userContext";
 import Persistance from "./hooks/Persistance";
 import { Alert } from "./hooks/useAlert";
+import EditDetails from "./componenets/EDITDETAILS/EditDetails";
 function App() {
   return (
     <Router>
@@ -15,6 +16,7 @@ function App() {
             <Route element={<Persistance />}>
               <Route path="" element={<Layout />}>
                 <Route path="home" element={<Home />} />
+                <Route path="edit_details" element={<EditDetails />} />
               </Route>
             </Route>
           </Routes>

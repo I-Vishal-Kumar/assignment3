@@ -57,7 +57,6 @@ class loginSignup {
 
   static SIGNUP = async (req, res) => {
     const { pass, email, phoneNumber, name, make_admin } = req.body;
-    console.log(make_admin);
     if (!pass || !name || (!phoneNumber && !email))
       return res
         .status(400)

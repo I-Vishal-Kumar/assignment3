@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import Footer from "./Footer";
 import { useEffect } from "react";
 import Usercard from "./Usercard";
-import { ExitOutline } from "react-ionicons";
+import { ExitOutline, TrashBin, TrashBinOutline } from "react-ionicons";
 import AlertBox from "./AlertBox";
 import { useNavigate } from "react-router-dom";
 import { useUserContext } from "../../hooks/userContext";
@@ -11,7 +11,7 @@ import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { useAlert } from "../../hooks/useAlert";
 const Layout = () => {
   const navigate = useNavigate();
-  const { alertState } = useAlert();
+  const { alertState, getAlert } = useAlert();
   const axiosPrivate = useAxiosPrivate();
   const { update_user_data } = useUserContext();
   useEffect(() => {
@@ -22,9 +22,15 @@ const Layout = () => {
     }
     getUserData();
   }, []);
+
   async function logout() {
     await axiosPrivate.get("/logout");
     update_user_data({});
+    navigate("/login");
+  }
+  async function deleteAccount() {
+    getAlert("Loading");
+    await axiosPrivate.get("/deleteAccount");
     navigate("/login");
   }
   return (
@@ -49,6 +55,22 @@ const Layout = () => {
                     />
                   </span>
                   <h3 className=" text-md font-normal">Logout</h3>
+                </div>
+              </li>
+              <li
+                onClick={deleteAccount}
+                className="flex pr-9 hover:shadow-md border-2 border-solid hover:border-gray-300 mb-2 items-center"
+              >
+                <div className="flex items-center">
+                  <span className="grid place-items-center h-20 pl-[1rem] pr-[0.5rem]">
+                    <TrashBinOutline
+                      color={"#666af6"}
+                      title={"home"}
+                      height={"30px"}
+                      width={"30px"}
+                    />
+                  </span>
+                  <h3 className=" text-md font-normal">Delete Account</h3>
                 </div>
               </li>
             </ul>

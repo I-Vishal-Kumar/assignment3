@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useUserContext } from "../../hooks/userContext";
 import ImageComponent from "../ImageComponent";
 const Usercard = () => {
@@ -28,6 +29,16 @@ const Usercard = () => {
           <li className="flex px-5 justify-between py-2 border-b-2 border-buttonColor ">
             <h3>{userData?.admin ? "Admin" : "User"}</h3>
             <h3>{userData?.user_id || "User_id"}</h3>
+          </li>
+          <li className="flex px-5 justify-between py-2 border-b-2 border-buttonColor ">
+            <Link to="../edit_details">
+              <button
+                type="button"
+                className="border-[1.25px] mt-[0.5rem] bg-slate-600 rounded-sm shadow-md hover:bg-slate-500 text-white border-solid border-gray-400 px-[0.5rem] py-[0.25rem]"
+              >
+                Edit details
+              </button>
+            </Link>
           </li>
         </ul>
       </div>

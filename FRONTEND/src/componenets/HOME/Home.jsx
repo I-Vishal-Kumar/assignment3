@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useUserContext } from "../../hooks/userContext";
 import { useAlert } from "../../hooks/useAlert";
 import UserCard from "../USERCARD/UserCard";
@@ -91,6 +91,14 @@ const HomePopup = () => {
             <div>
               <h3>{userData?.name || "Name"}</h3>
               <h5>{userData?.user_id || "User_id"}</h5>
+              <Link to="../edit_details">
+                <button
+                  type="button"
+                  className="border-[1.25px] mt-[0.5rem] bg-slate-600 rounded-sm shadow-md hover:bg-slate-500 text-white border-solid border-gray-400 px-[0.5rem] py-[0.25rem]"
+                >
+                  Edit details
+                </button>
+              </Link>
             </div>
           </div>
           <div className="h-[8rem] rounded-full overflow-hidden bg-green-500 aspect-square">

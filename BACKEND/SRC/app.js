@@ -98,6 +98,15 @@ app.get("/refresh", handleRefreshToken);
 app.get("/user_data", authorised, UserControler.getUserData);
 app.get("/getAllUserData", authorised, UserControler.getAllUserData);
 app.post("/delete_users", authorised, UserControler.deleteUserData);
+app.post(
+  "/editImage",
+  authorised,
+  uploads.single("avatar"),
+
+  UserControler.editImage
+);
+app.post("/editName", authorised, UserControler.changeName);
+app.get("/deleteAccount", authorised, UserControler.deleteAccount);
 app.get("", (req, res) => {
   res.send("route not found");
 });

@@ -91,6 +91,87 @@ class UserControler {
       }
     }
   };
+
+  static editImage = async (REQ, RES) => {
+    if (!REQ.USER_ID)
+      return RES.status(400).json({
+        status: "er",
+        message: "something went wrong",
+      });
+    try {
+      let res = await USER.findOneAndUpdate(
+        { user_id: REQ?.USER_ID },
+        {
+          avatar: `${process.env.DB_HOSTED_LINK}/${REQ.file.filename}`,
+        }
+      );
+      if (!res) throw new Error("something wnet wrong");
+      return RES.status(201).json({ status: "ok", message: "image edited" });
+    } catch (error) {
+      if (error?.message) {
+        return RES.status(500).json({
+          status: "er",
+          message: error?.message || "something went wrong",
+        });
+      }
+      return RES.status(500).json({
+        status: "er",
+        message: error?.message || "something went wrong",
+      });
+    }
+  };
+  static changeName = async (REQ, RES) => {
+    if (!REQ.USER_ID)
+      return RES.status(400).json({
+        status: "er",
+        message: "something went wrong",
+      });
+    try {
+      if (!REQ?.body?.name) throw new Error("Enter a valid name");
+      let res = await USER.findOneAndUpdate(
+        { user_id: REQ?.USER_ID },
+        {
+          name: REQ?.body?.name,
+        }
+      );
+      if (!res) throw new Error("something wnet wrong");
+      return RES.status(201).json({ status: "ok", message: "edited" });
+    } catch (error) {
+      if (error?.message) {
+        return RES.status(500).json({
+          status: "er",
+          message: error?.message || "something went wrong",
+        });
+      }
+      return RES.status(500).json({
+        status: "er",
+        message: error?.message || "something went wrong",
+      });
+    }
+  };
+  static deleteAccount = async (REQ, RES) => {
+    if (!REQ.USER_ID)
+      return RES.status(400).json({
+        status: "er",
+        message: "something went wrong",
+      });
+    try {
+      let res = await USER.findOneAndDelete({ user_id: REQ?.USER_ID });
+      if (!res) throw new Error("something wnet wrong");
+      return RES.status(201).json({ status: "ok", message: "deleted" });
+    } catch (error) {
+      if (error?.message) {
+        return RES.status(500).json({
+          status: "er",
+          message: error?.message || "something went wrong",
+        });
+      }
+      return RES.status(500).json({
+        status: "er",
+        message: error?.message || "something went wrong",
+      });
+    }
+  };
 }
 
 module.exports = { UserControler };
