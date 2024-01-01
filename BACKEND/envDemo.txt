@@ -1,0 +1,12 @@
+PORT= 8080
+WHITELIST = [array of website links you want to communicate with (for cors)]
+DB_LINK = "Your mongo db link (atlas)"
+
+LIVE_MATCH_KEY = key you got from api sports after registration
+LIVE_MATCH_URL = "https://v3.football.api-sports.io/"
+
+ACCESS_SECRET = access token secret
+REFRESH_SECRET = refresh token secret
+OTP_SECRET = your secret for otp 
+
+FAST2SMS_KEY = you api key of fast 2 sms;

@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Explora&family=Heebo:wght@100;200;300;400;500;600;700;800&family=Unbounded:wght@400;500&family=Work+Sans:wght@100;300;400;500;600&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: "#fed9ed";
+  --secondary: "#egbcde";
+  --buttons: "#67729d";
+  --tertiory: "#bb9cc0";
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scrollbar-color: transparent transparent;
+  scrollbar-width: 0px;
+  font-family: "Work Sans", sans-serif;
+}
+
+body {
+  overflow-y: hidden;
+}
+
+/* Track */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: #a2a2a2;
+  border-radius: 6px;
+  border: 1.25px solid #8b8484;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #6e6d6d;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: #cccbcb;
+  box-shadow: inset 1px 2px 4px gray;
+}
+
+/* Handle */
+::-webkit-scrollbar-handle {
+  background-color: #b3b3b3;
+  border-radius: 6px;
+}
+
+/* Button */
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+@media screen and (max-width: 950px) {
+  html {
+    font-size: 12px;
+  }
+  @layer base {
+    h1 {
+      font-size: 2.125rem;
+      font-weight: bold;
+    }
+    h2 {
+      font-size: 1.875rem;
+      font-weight: bold;
+    }
+    h3 {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    h4 {
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+    h5 {
+      font-size: 1.125rem;
+      font-weight: bold;
+    }
+    h6 {
+      font-size: 1rem;
+      font-weight: bold;
+    }
+  }
+}
+@media screen and (min-width: 950px) {
+  /*  pc media querry */
+  /* html {
+    font-size: 20px;
+  } */
+
+  @layer base {
+    h1 {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    h2 {
+      font-size: 1.35rem;
+      font-weight: bold;
+    }
+    h3 {
+      font-size: 1.125rem;
+      font-weight: bold;
+    }
+    h4 {
+      font-size: 1.05rem;
+      font-weight: bold;
+    }
+    h5 {
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+    h6 {
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+  }
+}
