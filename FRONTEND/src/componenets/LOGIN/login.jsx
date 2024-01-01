@@ -110,10 +110,10 @@ const Login = () => {
                 }}
                 className="h-[30%] z-10 aspect-square bg-indigo-400  rounded-full"
               ></div>
-              <h2 className="text-blue-800 mt-4">CHELSEA FOOTBALL</h2>
+              <h2 className="text-blue-800 mt-4">VISAHL KUMAR</h2>
               <span className="mt-[5rem] flex">
-                HELLO THERE THE NAME IS VISHAL AN I AM HERE
-                <h3 className="pl-1 text-blue-800"> JOIN US</h3>
+                HELLO THERE THE NAME IS VISHAL AN I AM READY TO
+                <h3 className="pl-1 text-blue-800"> JOIN</h3>
               </span>
             </div>
           </div>
